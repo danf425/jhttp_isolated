@@ -1,0 +1,15 @@
+FROM maven:3.6.3-jdk-8
+LABEL maintainer="Shivakumar Ningappa <shivagowda@gmail.com>"
+
+
+# Copy the source from the current directory to the Working Directory inside the container
+COPY . .
+
+# Build the Java server app
+RUN mvn clean package -DskipTests
+
+# Expose default port for external communication
+EXPOSE 8888
+
+# Command to run the executable jar
+CMD [ "java -jar target/jhttp-1.0-SNAPSHOT.jar" ]
