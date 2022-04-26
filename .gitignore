@@ -1,0 +1,10 @@
+.vscode
+*.terraform
+*.tfstate
+*.tfstate.backup
+.DS_Store
+*.tfvars
+*.lock
+*.lock.info
+*.hcl
+k8s/logshop/metrics-server/
