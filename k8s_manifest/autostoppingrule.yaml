@@ -1,0 +1,16 @@
+apiVersion: ccm.harness.io/v1
+kind: AutoStoppingRule
+metadata:
+    name: danf-web-united
+    namespace: default
+    annotations:
+        harness.io/cloud-connector-id: Harness_GCP_Billing
+spec:
+    service:
+        name: web
+        port: 80
+    ingress:
+        name: nginx-ingress-no-rewrite
+        controllerName: nginx
+    idleTimeMins: 15
+    hideProgressPage: false
