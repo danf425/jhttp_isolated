@@ -1,5 +1,5 @@
 name: <+service.name>
-replicas: 3
+replicas: 5
 
 image: <+artifact.image>
 # dockercfg: <+artifact.imagePullSecret>
