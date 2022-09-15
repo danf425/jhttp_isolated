@@ -14,7 +14,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "b" {
-  bucket = "temp-provisioned-bucket"
+  bucket = "e2e-demo-bucket"
 
   tags = {
     Name        = "temp_bucket"

@@ -7,7 +7,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "example" {
-  name     = "temp-tf-resources"
+  name     = "e2e-demo-blob"
   location = "West Europe"
 }
 
