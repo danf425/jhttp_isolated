@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: guestbook
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/danf425/jhttp_isolated.git
+      revision: main
+      files:
+      - path: "gitops_appset/configs/**/config.json"
+  template:
+    metadata:
+      name: 'jhttp-e2e-guestbook-{{cluster_name}}'
+    spec:
+      project: 207bda4a
+      source:
+        repoURL: https://github.com/danf425/jhttp_isolated.git
+        targetRevision: '{{releaseTag}}'
+        path: "helm-guestbook/"
+      destination:
+        server: '{{cluster_address}}'
+        namespace: e2e-dev-gitops
+      syncPolicy:
+        automated: {}
